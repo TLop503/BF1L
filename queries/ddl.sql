@@ -73,19 +73,3 @@ CREATE TABLE DriverResults (
     FOREIGN KEY (race_id) REFERENCES Races(race_id),
     FOREIGN KEY (driver_id) REFERENCES Drivers(driver_id)
 );
-
--- Weekly report of team scores
-CREATE TABLE WeeklyTeamResults (
-    score_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    team_id INT NOT NULL,
-    race_id INT NOT NULL,
-    weekend_id INT NOT NULL,
-    total_position_points INT NOT NULL,
-    total_lap_points INT NOT NULL,
-    total_performance_points INT NOT NULL,
-    week_total INT NOT NULL,
-    scored_date DATE NOT NULL,
-    FOREIGN KEY (team_id) REFERENCES Teams(team_id),
-    FOREIGN KEY (race_id) REFERENCES Races(race_id),
-    FOREIGN KEY (weekend_id) REFERENCES RaceWeekends(weekend_id)
-);
